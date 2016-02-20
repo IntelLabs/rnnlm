@@ -2,10 +2,10 @@
 This is a C++ implementation of RNNLM toolkit that supports three algorithms: standard RNNLM, NCE and BlackOut as described in "[Blackout: Speeding up recurrent neural network language models with very large vocabularies](http://arxiv.org/abs/1511.06909), ICLR 2016".
 
 ##License
-All source code files in the package is under [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+All source code files in the package are under [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 ##Prerequisites
-The code is developed and tested on UNIX-based systems, with the following software dependencies:
+The code is developed and tested on UNIX-based systems with the following software dependencies:
 
 - [Intel Compiler](https://software.intel.com/en-us/qualify-for-free-software) (The code is optimized on Intel CPUs)
 - OpenMP (No separated installation is needed once Intel compiler is installed)
@@ -39,3 +39,5 @@ sudo apt-get install numactl (on Ubuntu)
 
 ##Reference
 Shihao Ji, S. V. N. Vishwanathan, Nadathur Satish, Michael J. Anderson, Pradeep Dubey, [Blackout: Speeding up recurrent neural network language models with very large vocabularies](http://arxiv.org/abs/1511.06909), in International Conference on Learning Representations (ICLR'16), 2016.
+
+For questions and bug reports, please email shihao.ji@intel.com
