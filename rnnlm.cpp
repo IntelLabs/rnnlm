@@ -15,12 +15,6 @@
  *
  * Shihao Ji (Intel)
  */
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
-#include <fstream>
-#include <iostream>
 #include "rnnlmlib.hpp"
 
 int main(int argc, char **argv) {
