@@ -9,12 +9,12 @@ The code is developed and tested on UNIX-based systems with the following softwa
 
 - [Intel Compiler](https://software.intel.com/en-us/qualify-for-free-software) (The code is optimized on Intel CPUs)
 - OpenMP (No separated installation is needed once Intel compiler is installed)
-- MKL (The latest version is preferred as it has much better support for tall-skinny sgemms)
+- MKL (The latest version "16.0.0 or higher" is preferred as it has much better support for tall-skinny sgemms)
 - Boost library (at least 1.49)
 - Numactl package (for multi-socket NUMA systems)
 
 ##Environment Setup
-* Install Intel C++ development environment (i.e., Intel compiler, OpenMP, MKL. [free copies](https://software.intel.com/en-us/qualify-for-free-software) are available for some users)
+* Install Intel C++ development environment (i.e., Intel compiler, OpenMP, MKL "16.0.0 or higher". [free copies](https://software.intel.com/en-us/qualify-for-free-software) are available for some users)
 * Enable Intel C++ development environment
 ```
 source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh intel64 (pointing to the path of your installation)
