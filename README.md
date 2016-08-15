@@ -31,7 +31,7 @@ sudo apt-get install numactl (on Ubuntu)
 ```
 
 ##Quick Start
-1. Download the code: ```git clone https://bitbucket.org/shihaoji/rnnlm```
+1. Download the code: ```git clone https://github.com/IntelLabs/rnnlm```
 2. Compile the code: ```make clean all```
 3. Download the data: ```cd data; .\getsmall.sh or .\get1billion.sh```
 4. Run the demo script: ```cd sandbox; ./example_blackout.sh```
