@@ -28,6 +28,12 @@
 void rnnlm::pruneVocab() {
 
     unsigned int thres = 0, offset = 0;
+
+    // make sure at least one <unk> due to the complication of negative sampling
+    if (max_vocab_size >= vocab.size() + 2) {
+        max_vocab_size = vocab.size() + 1;
+    }
+
     if (max_vocab_size < vocab.size() + 2) {
         vector<unsigned int> occurrences;
         for (unordered_map<string, unsigned int>::iterator it = vocab.begin(); it != vocab.end(); it++) {
@@ -145,11 +151,15 @@ void rnnlm::learnVocabFromFile(string filename)
     string line;
     while (!file.eof()) {
         getline(file, line);
-        //line = trim(line);
+        line = trim(line);
         if (line.size()) {
             size_t cur = 0, prev = 0;
             while (cur != string::npos) {
                 cur = line.find(' ', prev);
+                if (cur == prev) {
+                    prev++;
+                    continue;
+                }
                 string word = line.substr(prev, cur - prev);
                 if (vocab.find(word) == vocab.end())
                     vocab[word] = 1;
@@ -197,12 +207,16 @@ void rnnlm::loadTrainingStreams(string filename, vector<vector<int>>& streams)
 
     while (!file.eof()) {
         getline(file, line);
-        //line = trim(line);
+        line = trim(line);
         if (line.size()) {
             sentence.clear();
             size_t cur = 0, prev = 0;
             while (cur != string::npos) {
                 cur = line.find(' ', prev);
+                if (cur == prev) {
+                    prev++;
+                    continue;
+                }
                 string word = line.substr(prev, cur - prev);
                 if (vocab.find(word) == vocab.end())
                     sentence.push_back(oov);
@@ -262,13 +276,17 @@ void rnnlm::loadVTSentences(string filename, vector<vector<int>>& data)
 
     while (!file.eof()) {
         getline(file, line);
-        //line = trim(line);
+        line = trim(line);
         if (line.size()) {
             sentence.clear();
             sentence.push_back(0);
             size_t cur = 0, prev = 0;
             while (cur != string::npos) {
                 cur = line.find(' ', prev);
+                if (cur == prev) {
+                    prev++;
+                    continue;
+                }
                 string word = line.substr(prev, cur - prev);
                 if (vocab.find(word) == vocab.end())
                     sentence.push_back(oov);
@@ -535,6 +553,10 @@ void rnnlm::loadNet(string filename) {
     for (int i = 0; i < vocab_size - 1; i++) {
         file >> word;
         index = atoi(word.c_str());
+        if (index != i) {
+            cerr << "failed to load vocabulary from model!" << endl;
+            exit(1);
+        }
         file >> word;
         vocab[word] = index;
     }
