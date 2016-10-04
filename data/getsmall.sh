@@ -2,16 +2,16 @@
 
 echo "Fetch the small dataset from rnnlm.org"
 
-if [ ! -e rnnlm-0.4b.tgz ]; then
+if [ ! -e rnnlm-0.3e.tgz ]; then
   echo "Downloading ..."
-  wget https://f25ea9ccb7d3346ce6891573d543960492b92c30.googledrive.com/host/0ByxdPXuxLPS5RFM5dVNvWVhTd0U/rnnlm-0.4b.tgz
+  wget http://www.fit.vutbr.cz/~imikolov/rnnlm/rnnlm-0.3e.tgz
 fi
 
-if [ ! -d rnnlm-0.4b ]; then
+if [ ! -d rnnlm-0.3e ]; then
   echo "Unzipping ..."
-  tar xvzf rnnlm-0.4b.tgz
+  mkdir -p rnnlm-0.3e && tar xvzf rnnlm-0.3e.tgz -C rnnlm-0.3e
 fi
 
-cp rnnlm-0.4b/train .
-cp rnnlm-0.4b/valid .
-cp rnnlm-0.4b/test  .
+cp rnnlm-0.3e/train .
+cp rnnlm-0.3e/valid .
+cp rnnlm-0.3e/test  .

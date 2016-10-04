@@ -1,5 +1,5 @@
 CC = icpc
-CFLAGS = -std=c++11 -O3 -openmp -lboost_program_options -Wall -Wno-sign-compare -mkl -xhost #-fimf-precision=low
+CFLAGS = -std=c++11 -O3 -qopenmp -lboost_program_options -Wall -Wno-sign-compare -mkl -xhost #-fimf-precision=low
 OPT_DEF = 
 
 all: rnnlm
