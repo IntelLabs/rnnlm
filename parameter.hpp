@@ -19,6 +19,7 @@
 #define __RNNLM_PARAMETER_H
 
 #include <string>
+#include <iostream>
 #include <boost/program_options.hpp>
 
 using std::string;
