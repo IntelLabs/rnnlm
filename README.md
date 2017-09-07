@@ -40,4 +40,4 @@ sudo apt-get install numactl (on Ubuntu)
 ## Reference
 Shihao Ji, S. V. N. Vishwanathan, Nadathur Satish, Michael J. Anderson, Pradeep Dubey, [Blackout: Speeding up recurrent neural network language models with very large vocabularies](http://arxiv.org/abs/1511.06909), in International Conference on Learning Representations (ICLR'16), 2016.
 
-For questions and bug reports, please email shihao.ji@intel.com
+For questions and bug reports, you can reach me at https://cs.gsu.edu/~sji/
